@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">miapp</string>
+    <string name="covid_19">COVID-19</string>
+    <string name="health">Estado de salud</string>
+    <string name="temperature_info">Temperatura actual en grados celsius    </string>
+    <string name="send">ENVIAR</string>
+    <string name="symtoms_text">Selección de Síntomas   </string>
+</resources>

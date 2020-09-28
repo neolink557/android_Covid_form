@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeActivity"
+    >
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/image_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/gradient"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
+
+        <TextView
+            android:id="@+id/toolbar_textView"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/covid_19"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/toolbar_menu"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="15dp"
+            android:tint="@android:color/white"
+            android:src="@drawable/ic_menu"
+            >
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <RelativeLayout
+                android:id="@+id/home_screen"
+                android:layout_margin="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/back_home_arrow"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:tint="@color/colorPrimaryDark"
+                    android:src="@drawable/ic_arrow_back"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/home_temperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/temperature_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/health"
+                        android:textAlignment="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/temperature_info_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textAlignment="center"
+                        android:layout_below="@id/temperature_textView"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/temperature_info"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/temperature"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_below="@id/temperature_info_textView"
+                        android:layout_marginTop="38dp"
+                        android:layout_toStartOf="@id/temperature_minus"
+                        android:src="@drawable/ic_temperature"
+                        android:tint="@color/colorPrimary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/temperature_minus"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_below="@id/temperature_info_textView"
+                        android:layout_marginTop="30dp"
+                        android:layout_toStartOf="@id/temperature_image"
+                        android:src="@drawable/ic_minus"
+                        android:tint="@color/colorPrimary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/temperature_plus"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_below="@id/temperature_info_textView"
+                        android:layout_marginTop="30dp"
+                        android:layout_toEndOf="@id/temperature_image"
+                        android:src="@drawable/ic_plus"
+                        android:tint="@color/colorPrimary" />
+                    <Button
+                        android:id="@+id/temperature_image"
+                        android:layout_width="120dp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:textStyle="bold"
+                        android:clickable="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:background="@drawable/button_style"
+                        android:layout_below="@id/temperature_info_textView"
+                        >
+
+                    </Button>
+                </RelativeLayout>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/symptoms_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif"
+                android:layout_below="@id/home_screen"
+                android:layout_centerHorizontal="true"
+                android:text="@string/symtoms_text"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:id="@+id/options_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_below="@id/symptoms_textView">
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_fiebre"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_type_textView_fiebre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Fiebre"
+                    android:textAlignment="center"
+                    android:layout_below="@id/symptoms_type_imageView_fiebre"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/symptoms_type_switch_fiebre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/symptoms_type_imageView_fiebre"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
+                    android:checked="true"
+                    android:padding="20dp"
+                    style="@style/MySwitchCompatStyle">
+
+                </Switch>
+
+                <TextView
+                    android:id="@+id/symptoms_radio_On_fiebre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_fiebre"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="Si"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_radio_Off_fiebre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_fiebre"
+                    android:fontFamily="sans-serif"
+                    android:layout_centerHorizontal="true"
+                    android:text="No"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_bottom_fatiga"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:layout_below="@id/symptoms_type_switch_fiebre"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_type_textView_fatiga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Fatiga"
+                    android:textAlignment="center"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_fatiga"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/symptoms_type_switch_fatiga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_fatiga"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
+                    android:checked="true"
+                    android:padding="20dp"
+                    style="@style/MySwitchCompatStyle">
+
+                </Switch>
+
+                <TextView
+                    android:id="@+id/symptoms_radio_On_fatiga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_fatiga"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_fatiga"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="Si"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_radio_Off_fatiga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_fatiga"
+                    android:fontFamily="sans-serif"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_fatiga"
+                    android:text="No"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_bottom_tos"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:layout_below="@id/symptoms_type_switch_fatiga"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_type_textView_tos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Tos"
+                    android:textAlignment="center"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_tos"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/symptoms_type_switch_tos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_tos"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
+                    android:checked="true"
+                    android:padding="20dp"
+                    style="@style/MySwitchCompatStyle">
+
+                </Switch>
+
+                <TextView
+                    android:id="@+id/symptoms_radio_On_tos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_tos"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_tos"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="Si"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_radio_Off_tos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_tos"
+                    android:fontFamily="sans-serif"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_tos"
+                    android:text="No"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_bottom_garganta"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:layout_below="@id/symptoms_type_switch_tos"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_type_textView_garganta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Dolor de garganta"
+                    android:textAlignment="center"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_garganta"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/symptoms_type_switch_garganta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_garganta"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
+                    android:checked="true"
+                    android:padding="20dp"
+                    style="@style/MySwitchCompatStyle">
+
+                </Switch>
+
+                <TextView
+                    android:id="@+id/symptoms_radio_On_garganta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_garganta"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_garganta"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="Si"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_radio_Off_garganta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_garganta"
+                    android:fontFamily="sans-serif"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_garganta"
+                    android:text="No"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_bottom_respirar"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:layout_below="@id/symptoms_type_switch_garganta"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_type_textView_respirar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Dificultad para respirar"
+                    android:textAlignment="center"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_respirar"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/symptoms_type_switch_respirar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_respirar"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
+                    android:checked="true"
+                    android:padding="20dp"
+                    style="@style/MySwitchCompatStyle">
+
+                </Switch>
+
+                <TextView
+                    android:id="@+id/symptoms_radio_On_respirar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_respirar"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_respirar"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="Si"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_radio_Off_respirar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_respirar"
+                    android:fontFamily="sans-serif"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_respirar"
+                    android:text="No"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_bottom_malestar"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:layout_below="@id/symptoms_type_switch_respirar"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_type_textView_malestar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Malestar general"
+                    android:textAlignment="center"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_malestar"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15sp" />
+
+                <Switch
+                    android:id="@+id/symptoms_type_switch_malestar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_malestar"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="40dp"
+                    android:checked="true"
+                    android:padding="20dp"
+                    style="@style/MySwitchCompatStyle">
+
+                </Switch>
+
+                <TextView
+                    android:id="@+id/symptoms_radio_On_malestar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_malestar"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_malestar"
+                    android:fontFamily="sans-serif"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="Si"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/symptoms_radio_Off_malestar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toStartOf="@id/symptoms_type_switch_malestar"
+                    android:fontFamily="sans-serif"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/symptoms_type_imageView_bottom_malestar"
+                    android:text="No"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/symptoms_type_imageView_bottom_"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:text="@string/symtoms_text"
+                    android:background= "@color/colorPrimary"
+                    android:layout_below="@id/symptoms_type_switch_malestar"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/home_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/options_recycler"
+                >
+                <ImageView
+                    android:id="@+id/home_camera"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_camera"
+                    android:tint="@color/colorPrimaryDark"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="20sp"
+                    >
+
+                </ImageView>
+                <Button
+                    android:id="@+id/send"
+                    android:layout_width="250dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/send"
+                    android:layout_below="@id/home_camera"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@drawable/button_style"
+                    >
+
+                </Button>
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</RelativeLayout>
